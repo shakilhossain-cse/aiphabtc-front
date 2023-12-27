@@ -4,37 +4,58 @@ import { styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { SearchBar } from "./SearchBar";
+import Link from "next/link";
 
 export const Navbar = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   const menuItems = [
-    "Dashboard",
-    "Community",
-    "Rewards",
-    "AI Bot",
-    "Whitepapers",
-    "About Us",
+    {
+      label: "Dashboard",
+      uri: "/",
+    },
+    {
+      label: "Community",
+      uri: "/",
+    },
+    {
+      label: "Rewards",
+      uri: "/",
+    },
+    {
+      label: "AI Bot",
+      uri: "/ai-bot",
+    },
+    {
+      label: "Whitepapers",
+      uri: "/",
+    },
+    {
+      label: "About Us",
+      uri: "/",
+    },
   ];
 
   return (
     <Grid container alignItems="center" justifyContent="center">
-      {" "}
-      {/* Add justifyContent here */}
       <Logo item xs={11} lg={1} xl={1} sx={{ p: 3 }}>
         AIPHABTC
       </Logo>
       {!isSmallScreen && (
         <>
           <Grid item xs={6} lg={6} xl={5} sx={{ p: 3 }}>
-            <Grid container justifyContent="center">
-              {" "}
-              {/* Add justifyContent here for inner Grid */}
+            <Grid container justifyContent="space-between">
               {menuItems.map((item, index) => (
-                <LinkGridItem key={index} item xs>
-                  {item}
-                </LinkGridItem>
+                <Link
+                  href={item.uri}
+                  key={index}
+                  style={{ textDecoration: "none" }}
+                >
+                  <LinkGridItem item xs>
+                    {item.label}
+                  </LinkGridItem>
+                </Link>
               ))}
             </Grid>
           </Grid>

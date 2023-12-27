@@ -60,9 +60,7 @@ export const PriceChart = () => {
       color="white"
       style={{
         borderRadius: 20,
-        width: "80%",
-        margin: "auto",
-        overflow: "auto",
+      
       }}
     >
       <div

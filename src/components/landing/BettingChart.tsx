@@ -21,7 +21,6 @@ const CryptoContainer = styled(Box)({
   borderRadius: 20,
   display: "flex",
   flexDirection: "column",
-  width: "80%",
   height: "auto",
   margin: "0 auto",
 });

@@ -13,7 +13,6 @@ export const IndicatorBox = ({ label, value, children }: StatBoxProps) => (
       sx={{
         backgroundColor: "#1E1F25",
         borderRadius: "16px",
-        padding: 2,
         margin: 1,
         display: "flex",
         flexDirection: "column",
@@ -28,7 +27,7 @@ export const IndicatorBox = ({ label, value, children }: StatBoxProps) => (
             variant="h6"
             color="#5D6588"
             align="left"
-            style={{ padding: "12px" }}
+            style={{ padding: "12px" }} 
           >
             {label}
           </Typography>

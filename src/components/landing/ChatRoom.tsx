@@ -129,10 +129,7 @@ export const ChatRoom = () => {
       color="white"
       p={2}
       style={{
-        borderRadius: 20,
-        width: "80%",
-        margin: "auto",
-        overflow: "auto",
+        borderRadius: 20
       }}
     >
       <Grid container justifyContent="space-between" alignItems="center">

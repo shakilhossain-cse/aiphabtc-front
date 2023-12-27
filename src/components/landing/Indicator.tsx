@@ -38,16 +38,7 @@ export const Indicator = () => {
   return (
     <Box
       color="white"
-      style={{
-        borderRadius: 20,
-        width: "80%",
-        margin: "auto",
-        overflow: "auto",
-        paddingBottom: 16, // 16px bottom padding
-        paddingLeft: 16, // 16px left padding
-        paddingRight: 16, // 16px right padding
-        paddingTop: 0, // No top padding
-      }}
+     
     >
       <Grid container spacing={2} justifyContent="center" alignItems="center">
         <IndicatorBox label="Coin" value={selectedCoin}>

@@ -7,53 +7,68 @@ import { BettingChart } from "./BettingChart";
 import { PredictionChart } from "./PredictionChart";
 import { MyBetChart } from "./MyBetChart";
 
-const FullHeightGrid = styled(Grid)({
-  height: "100vh",
-  width: "100%",
-});
-
-const FullHeightItem = styled(Grid)(({ theme }) => ({
-  height: "100%",
-  minHeight: "1000px", // Example minimum height
-  [theme.breakpoints.down("md")]: {
-    height: "auto",
-  },
-}));
-
 export const Landing = () => {
   return (
-    <FullHeightGrid container spacing={2}>
-      {/* Left */}
-      <FullHeightItem item xs={12} lg={9}>
-        <Grid container direction="column" style={{ height: "105%" }}>
-          <Grid item style={{ height: "20%" }}>
-            <Indicator />
-          </Grid>
-          <Grid item style={{ height: "50%" }}>
-            <PriceChart />
-          </Grid>
-          <Grid item style={{ height: "30%" }}>
-            <ChatRoom />
-          </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={8} container spacing={2}>
+        <Grid item xs={12}>
+          <Indicator />
         </Grid>
-      </FullHeightItem>
-
-      {/* Right */}
-      <FullHeightItem item xs={12} lg={3}>
-        <Grid container direction="column" style={{ height: "150%" }}>
-          <Grid item style={{ height: "22%" }}>
-            <BettingChart />
-          </Grid>
-          <Grid item style={{ height: "25%" }}>
-            <PredictionChart />
-          </Grid>
-          <Grid item style={{ height: "30%" }}>
-            <MyBetChart />
-          </Grid>
+        <Grid item xs={12}>
+          <PriceChart />
         </Grid>
-      </FullHeightItem>
-    </FullHeightGrid>
+        <Grid item xs={12}>
+          <ChatRoom />
+        </Grid>
+      </Grid>
+      <Grid item xs={12} sm={4} container spacing={2}>
+        <Grid item xs={12}>
+          <BettingChart />
+        </Grid>
+        <Grid item xs={12}>
+          <PredictionChart />
+        </Grid>
+        <Grid item xs={12}>
+          <MyBetChart />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
 export default Landing;
+
+{
+  /* <FullHeightGrid container spacing={2}> */
+}
+
+{
+  /* <FullHeightItem item xs={8}>
+  <Grid container direction="column">
+    <Grid item>
+      <Indicator />
+    </Grid>
+    <Grid item>
+      <PriceChart />
+    </Grid>
+    <Grid item>
+      <ChatRoom />
+    </Grid>
+  </Grid>
+</FullHeightItem>
+
+<Grid item  xs={4}>
+  <Grid container direction="column"  spacing={2}>
+    <Grid item>
+      <BettingChart />
+    </Grid>
+    <Grid item>
+      <PredictionChart />
+    </Grid>
+    <Grid item >
+      <MyBetChart />
+    </Grid>
+  </Grid>
+</Grid>
+</FullHeightGrid> */
+}
