@@ -15,6 +15,9 @@ import BuySellProgressBar from "../../components/aiBot/BuySellProgressBar";
 import TableList from "../../components/aiBot/TableList";
 import TableData from "../../components/aiBot/TableData";
 import TradingBot from "../../components/aiBot/TradingBot";
+import TimeIndicator from "../../components/aiBot/TimeIndicator";
+import BreakingNews from "../../components/aiBot/BreakingNews";
+import FearGreed from "../../components/aiBot/FearGreed";
 
 const aiBot = () => {
   const data = {
@@ -53,6 +56,8 @@ const aiBot = () => {
             <TradingBot />
           </Grid>
           <Grid item xs={12} sm={4} md={4}>
+            <FearGreed/>
+            <TimeIndicator />
             <TableData
               data={tableData.data}
               labelOne={tableData.labelOne}
@@ -66,6 +71,7 @@ const aiBot = () => {
               labelOne={tableData.labelOne}
               labelTwo={tableData.labelTwo}
             />
+            <BreakingNews/>
           </Grid>
         </Grid>
       </Container>
