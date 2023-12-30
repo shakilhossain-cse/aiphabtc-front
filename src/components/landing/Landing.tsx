@@ -1,7 +1,7 @@
 import React from "react";
 import { styled, Grid } from "@mui/material";
 import { Indicator } from "./Indicator";
-import { PriceChart } from "./PriceChart";
+import { PriceChart } from "../aiBot/PriceChart";
 import { ChatRoom } from "./ChatRoom";
 import { BettingChart } from "./BettingChart";
 import { PredictionChart } from "./PredictionChart";

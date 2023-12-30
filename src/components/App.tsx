@@ -11,15 +11,7 @@ import { decrement, increment } from "../store/features/counter/counterSlice";
 // Styled component that applies global styles
 
 export const App = () => {
-  return (
-    <div>
-      <Navbar />
-      <Container style={{ maxWidth: 1700 }}>
-        <Landing />
-      </Container>
-    </div>
-  );
+  return <Landing />;
 };
-
 
 export default App;

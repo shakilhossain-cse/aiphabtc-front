@@ -43,7 +43,7 @@ export const PriceChart = () => {
           symbol: "BITGET:BTCUSDT.P",
           interval: "60",
           timezone: "Etc/UTC",
-          theme: "dark",
+          theme: "white",
           style: "1",
           locale: "en",
           enable_publishing: false,
@@ -75,7 +75,7 @@ export const PriceChart = () => {
         <div
           id="tradingview_b2784"
           style={{
-            height: "50em",
+            height: "25em",
             width: "100%",
             maxWidth: "500em",
           }}

@@ -14,10 +14,11 @@ import ListCard from "../../components/aiBot/ListCard";
 import BuySellProgressBar from "../../components/aiBot/BuySellProgressBar";
 import TableList from "../../components/aiBot/TableList";
 import TableData from "../../components/aiBot/TableData";
-import TradingBot from "../../components/aiBot/TradingBot";
+import TradingBot from "../../components/aiBot/AiphaBot";
 import TimeIndicator from "../../components/aiBot/TimeIndicator";
 import BreakingNews from "../../components/aiBot/BreakingNews";
 import FearGreed from "../../components/aiBot/FearGreed";
+import ChartAnalyst from "../../components/aiBot/ChartAnalyst";
 
 const aiBot = () => {
   const data = {
@@ -45,8 +46,7 @@ const aiBot = () => {
   };
   return (
     <div>
-      <Navbar />
-      <Container>
+    
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -72,9 +72,9 @@ const aiBot = () => {
               labelTwo={tableData.labelTwo}
             />
             <BreakingNews/>
+            <ChartAnalyst/>
           </Grid>
         </Grid>
-      </Container>
     </div>
   );
 };

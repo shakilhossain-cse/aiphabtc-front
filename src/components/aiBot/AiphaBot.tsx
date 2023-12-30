@@ -5,10 +5,8 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import styled from "@emotion/styled";
 import Chart from "./Chart";
 
-const TradingBot = () => {
+const AiphaBot = () => {
   return (
-    <Grid container direction={"column"}>
-      <Grid item></Grid>
       <CardWrapper>
         <Header>
           <Typography>AIPHABOT 예측 결과</Typography>
@@ -40,33 +38,10 @@ const TradingBot = () => {
         </PredictionBody>
         <Chart />
       </CardWrapper>
-      <CardWrapper>
-        <Header>
-          <Typography>AIPHABOT 예측 결과</Typography>
-          <InDicator>
-            <ArrowDropUpIcon />
-            <Typography>Bullish</Typography>
-          </InDicator>
-        </Header>
-        <PredictionBody>
-          <Box>
-            <SubTitle>진입 가격 (USDT)</SubTitle>
-            <Typography>USD 41,385.20</Typography>
-          </Box>
-          <StyleSelect value={"1 hour"}>
-            <MenuItem value={"1 hour"} selected>
-              1 hour
-            </MenuItem>
-          </StyleSelect>
-        </PredictionBody>
-
-        <Chart />
-      </CardWrapper>
-    </Grid>
   );
 };
 
-export default TradingBot;
+export default AiphaBot;
 
 const Header = styled(Box)({
   display: "flex",
