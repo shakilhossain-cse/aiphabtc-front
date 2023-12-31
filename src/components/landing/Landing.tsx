@@ -50,7 +50,7 @@ export const Landing = () => {
 		],
 	};
 	return (
-		<Grid container spacing={2}>
+		<Grid container spacing={2} marginTop={0}>
 			<Grid item xs={12} sm={12} md={8} container spacing={2}>
 				<Grid item xs={12}>
 					<SectionContainer>

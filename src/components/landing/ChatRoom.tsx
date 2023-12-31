@@ -1,8 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import { Grid, Container } from "@mui/material";
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import styled from "@emotion/styled";
 
 const getChat = () => {
 	return [
@@ -115,6 +114,9 @@ const getChat = () => {
 };
 
 export const ChatRoom = () => {
+	const theme = useTheme();
+	const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
+
 	const [selected, setSelected] = React.useState("All Chats");
 
 	const handleSelection = (option) => {
@@ -164,41 +166,66 @@ export const ChatRoom = () => {
 					<Grid item xs={3}>
 						<Typography style={{ color: "#5D6588" }}>User</Typography>
 					</Grid>
-					<Grid item xs={5}>
+					<Grid item xs={4}>
 						<Typography style={{ color: "#5D6588" }}>Messages</Typography>
 					</Grid>
 					<Grid item xs={2}>
-						<Typography style={{ color: "#5D6588" }}>Prediction</Typography>
+						<Typography style={{ color: "#5D6588" }}>
+							{isMediumScreen ? "Prediction" : "Pred.."}
+						</Typography>
 					</Grid>
 					<Grid item xs={1}>
-						<Typography style={{ color: "#5D6588" }}>Hour</Typography>
+						<Typography style={{ color: "#5D6588" }}>
+							{isMediumScreen ? "Hour" : "Hr.."}
+						</Typography>
 					</Grid>
-					<Grid item xs={1}>
-						<Typography style={{ color: "#5D6588" }}>Timestamp</Typography>
+					<Grid item xs={2}>
+						<Typography
+							style={{
+								color: "#5D6588",
+								display: "flex",
+								justifyContent: isMediumScreen ? "flex-end" : "flex-start",
+							}}
+						>
+							{isMediumScreen ? "Timestamp" : "Time.."}
+						</Typography>
 					</Grid>
 				</Grid>
 			</Box>
-			{data.map((chat, index) => (
-				<Box key={index} py={1}>
-					<Grid container>
-						<Grid item xs={3}>
-							<Typography>{chat.User}</Typography>
+			<SectionContainer className="table_scroll">
+				{data.map((chat, index) => (
+					<Box key={index} py={1}>
+						<Grid container>
+							<Grid item xs={3}>
+								<Typography>{chat.User}</Typography>
+							</Grid>
+							<Grid item xs={4}>
+								<Typography>{chat.Messages}</Typography>
+							</Grid>
+							<Grid item xs={2}>
+								<Typography>{chat.Prediction}</Typography>
+							</Grid>
+							<Grid item xs={1}>
+								<Typography>{chat.Hour}</Typography>
+							</Grid>
+							<Grid item xs={2}>
+								<Typography
+									style={{
+										display: "flex",
+										justifyContent: isMediumScreen ? "flex-end" : "flex-start",
+									}}
+								>
+									{chat.Timestamp}
+								</Typography>
+							</Grid>
 						</Grid>
-						<Grid item xs={5}>
-							<Typography>{chat.Messages}</Typography>
-						</Grid>
-						<Grid item xs={2}>
-							<Typography>{chat.Prediction}</Typography>
-						</Grid>
-						<Grid item xs={1}>
-							<Typography>{chat.Hour}</Typography>
-						</Grid>
-						<Grid item xs={1}>
-							<Typography>{chat.Timestamp}</Typography>
-						</Grid>
-					</Grid>
-				</Box>
-			))}
+					</Box>
+				))}
+			</SectionContainer>
 		</Box>
 	);
 };
+
+const SectionContainer = styled(Box)({
+	overflow: "auto",
+});

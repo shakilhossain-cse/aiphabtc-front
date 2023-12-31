@@ -11,7 +11,7 @@ import { decrement, increment } from "../store/features/counter/counterSlice";
 // Styled component that applies global styles
 
 export const App = () => {
-  return <Landing />;
+	return <Landing />;
 };
 
 export default App;
