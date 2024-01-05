@@ -11,198 +11,209 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import { SearchBar } from "./SearchBar";
+import { useRouter } from "next/router";
 
 const pages = [
-	{
-		label: "Dashboard",
-		uri: "/",
-	},
-	{
-		label: "Community",
-		uri: "/",
-	},
-	{
-		label: "Rewards",
-		uri: "/",
-	},
-	{
-		label: "AI Bot",
-		uri: "/ai-bot",
-	},
-	{
-		label: "Whitepapers",
-		uri: "/",
-	},
-	{
-		label: "About Us",
-		uri: "/",
-	},
+  {
+    label: "Dashboard",
+    uri: "/",
+  },
+  {
+    label: "Community",
+    uri: "/",
+  },
+  {
+    label: "Rewards",
+    uri: "/",
+  },
+  {
+    label: "AI Bot",
+    uri: "/ai-bot",
+  },
+  {
+    label: "Whitepapers",
+    uri: "/",
+  },
+  {
+    label: "About Us",
+    uri: "/",
+  },
 ];
 
 const Navbar = () => {
-	const theme = useTheme();
-	const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
-	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-		null,
-	);
+  const theme = useTheme();
+  const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const router = useRouter();
+  console.log(router.pathname);
 
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget);
-	};
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-	const SignInBtn = styled(Box)({
-		width: isMediumScreen ? "25%" : "40%",
-		padding: "5px",
-		color: "#ffffff",
-		textAlign: "center",
-		border: "1px solid #5D6588",
-		borderRadius: 10,
-		textTransform: "uppercase",
-		cursor: "pointer",
-	});
+  const SignInBtn = styled(Box)({
+    width: isMediumScreen ? "25%" : "40%",
+    padding: "5px",
+    color: "#ffffff",
+    textAlign: "center",
+    border: "1px solid #5D6588",
+    borderRadius: 10,
+    textTransform: "uppercase",
+    cursor: "pointer",
+  });
 
-	return (
-		<AppBar
-			position="static"
-			sx={{
-				backgroundColor: "transparent",
-				boxShadow: "none",
-				paddingY: 1,
-			}}
-		>
-			<Container maxWidth="xl">
-				<Toolbar disableGutters>
-					<Typography
-						variant="h6"
-						noWrap
-						component="a"
-						href="/"
-						sx={{
-							mr: 2,
-							display: { xs: "none", lg: "flex" },
-							fontWeight: 700,
-							letterSpacing: ".3rem",
-							color: "inherit",
-							textDecoration: "none",
-						}}
-					>
-						AIPHABTC
-					</Typography>
-					{/* small device menu item */}
-					<Box sx={{ flexGrow: 1, display: { xs: "flex", lg: "none" } }}>
-						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleOpenNavMenu}
-							color="inherit"
-						>
-							<MenuIcon />
-						</IconButton>
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: "bottom",
-								horizontal: "left",
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: "top",
-								horizontal: "left",
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
-							sx={{
-								display: { xs: "block", lg: "none" },
-							}}
-						>
-							{pages.map((item, index) => (
-								<Link
-									href={item.uri}
-									key={index}
-									style={{ textDecoration: "none" }}
-									onClick={handleCloseNavMenu}
-								>
-									<LinkGridItem item xs style={{ padding: "5px 10px" }}>
-										{item.label}
-									</LinkGridItem>
-								</Link>
-							))}
-						</Menu>
-					</Box>
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        paddingY: 1,
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", lg: "flex" },
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            AIPHABTC
+          </Typography>
+          {/* small device menu item */}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", lg: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", lg: "none" },
+              }}
+            >
+              {pages.map((item, index) => (
+                <Link
+                  href={item.uri}
+                  key={index}
+                  style={{ textDecoration: "none" }}
+                  onClick={handleCloseNavMenu}
+                >
+                  <LinkGridItem
+                    item
+                    xs
+                    style={
+                      router.pathname == item.uri
+                        ? { padding: "5px 10px", color: "#fff" }
+                        : { padding: "5px 10px" }
+                    }
+                  >
+                    {item.label}
+                  </LinkGridItem>
+                </Link>
+              ))}
+            </Menu>
+          </Box>
 
-					{/* small device logo */}
-					<Typography
-						variant="h6"
-						noWrap
-						component="a"
-						href="/"
-						sx={{
-							mr: 2,
-							display: { xs: "flex", lg: "none" },
-							flexGrow: 1,
-							fontWeight: 700,
-							letterSpacing: ".3rem",
-							color: "inherit",
-							textDecoration: "none",
-						}}
-					>
-						AIPHABTC
-					</Typography>
-					<Box
-						sx={{
-							flexGrow: 1,
-							display: { xs: "none", lg: "flex" },
-						}}
-					>
-						{pages.map((item, index) => (
-							<Link
-								href={item.uri}
-								key={index}
-								style={{ textDecoration: "none" }}
-							>
-								<LinkGridItem item xs>
-									{item.label}
-								</LinkGridItem>
-							</Link>
-						))}
-					</Box>
+          {/* small device logo */}
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "flex", lg: "none" },
+              flexGrow: 1,
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            AIPHABTC
+          </Typography>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", lg: "flex" },
+            }}
+          >
+            {pages.map((item, index) => (
+              <Link
+                href={item.uri}
+                key={index}
+                style={{ textDecoration: "none" }}
+              >
+                <LinkGridItem item xs>
+                  {item.label}
+                </LinkGridItem>
+              </Link>
+            ))}
+          </Box>
 
-					<Box
-						sx={{ display: "flex", flexGrow: 0, gap: 2, alignItems: "center" }}
-					>
-						<SearchContainer>
-							<SearchBar />
-						</SearchContainer>
-						<SignInBtn>
-							<Typography>Sign in</Typography>
-						</SignInBtn>
-					</Box>
-				</Toolbar>
-			</Container>
-		</AppBar>
-	);
+          <Box
+            sx={{ display: "flex", flexGrow: 0, gap: 2, alignItems: "center" }}
+          >
+            <SearchContainer>
+              <SearchBar />
+            </SearchContainer>
+            <SignInBtn>
+              <Typography>Sign in</Typography>
+            </SignInBtn>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
 };
 
 export default Navbar;
 
 const LinkGridItem = styled(Grid)({
-	color: "#5D6588",
-	textAlign: "start",
-	fontSize: 18,
-	marginRight: 15,
-	textTransform: "capitalize",
+  color: "#5D6588",
+  textAlign: "start",
+  fontSize: 18,
+  marginRight: 15,
+  textTransform: "capitalize",
 });
 
 const SearchContainer = styled(Box)({
-	width: "75%",
-	color: "#5D6588",
-	textAlign: "center",
-	textTransform: "capitalize",
+  width: "75%",
+  color: "#5D6588",
+  textAlign: "center",
+  textTransform: "capitalize",
 });
