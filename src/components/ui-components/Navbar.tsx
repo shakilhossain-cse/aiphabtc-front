@@ -20,11 +20,11 @@ const pages = [
   },
   {
     label: "Community",
-    uri: "/",
+    uri: "/community",
   },
   {
     label: "Rewards",
-    uri: "/",
+    uri: "/rewards",
   },
   {
     label: "AI Bot",
@@ -32,11 +32,11 @@ const pages = [
   },
   {
     label: "Whitepapers",
-    uri: "/",
+    uri: "/whitepapers",
   },
   {
     label: "About Us",
-    uri: "/",
+    uri: "/about-us ",
   },
 ];
 
@@ -46,8 +46,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const router = useRouter();
-  console.log(router.pathname);
+  const route = useRouter().pathname;
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -132,17 +131,13 @@ const Navbar = () => {
                   style={{ textDecoration: "none" }}
                   onClick={handleCloseNavMenu}
                 >
-                  <LinkGridItem
-                    item
-                    xs
-                    style={
-                      router.pathname == item.uri
-                        ? { padding: "5px 10px", color: "#fff" }
-                        : { padding: "5px 10px" }
-                    }
-                  >
-                    {item.label}
-                  </LinkGridItem>
+                  {route === item.uri ? (
+                    <LinkActiveItem> {item.label}</LinkActiveItem>
+                  ) : (
+                    <LinkGridItem item xs>
+                      {item.label}
+                    </LinkGridItem>
+                  )}
                 </Link>
               ))}
             </Menu>
@@ -178,9 +173,13 @@ const Navbar = () => {
                 key={index}
                 style={{ textDecoration: "none" }}
               >
-                <LinkGridItem item xs>
-                  {item.label}
-                </LinkGridItem>
+                {route === item.uri ? (
+                  <LinkActiveItem> {item.label}</LinkActiveItem>
+                ) : (
+                  <LinkGridItem item xs>
+                    {item.label}
+                  </LinkGridItem>
+                )}
               </Link>
             ))}
           </Box>
@@ -209,6 +208,16 @@ const LinkGridItem = styled(Grid)({
   fontSize: 18,
   marginRight: 15,
   textTransform: "capitalize",
+  padding: "5px 10px",
+});
+
+const LinkActiveItem = styled(Grid)({
+  color: "#ffff",
+  textAlign: "start",
+  fontSize: 18,
+  marginRight: 15,
+  textTransform: "capitalize",
+  padding: "5px 10px",
 });
 
 const SearchContainer = styled(Box)({
