@@ -96,37 +96,3 @@ const SectionContainer = styled(Box)({
 	gap: "16px",
 });
 
-{
-	/* <FullHeightGrid container spacing={2}> */
-}
-
-{
-	/* <FullHeightItem item xs={8}>
-  <Grid container direction="column">
-    <Grid item>
-      <Indicator />
-    </Grid>
-    <Grid item>
-      <PriceChart />
-    </Grid>
-    <Grid item>
-      <ChatRoom />
-    </Grid>
-  </Grid>
-</FullHeightItem>
-
-<Grid item  xs={4}>
-  <Grid container direction="column"  spacing={2}>
-    <Grid item>
-      <BettingChart />
-    </Grid>
-    <Grid item>
-      <PredictionChart />
-    </Grid>
-    <Grid item >
-      <MyBetChart />
-    </Grid>
-  </Grid>
-</Grid>
-</FullHeightGrid> */
-}
